@@ -1,26 +1,31 @@
 #include<iostream>
 #include<algorithm>
-#include<unordered_map>
 #include<string>
 using namespace std;
 
-unordered_map<string, int> dict;
 int N, M;
+int ans,cnt;
 string str;
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
+	int i=0;
 	cin >> N >> M;
 	cin >> str;
-	string a = "IOI";
-	string b = "OI";
-	for (int i = 0; i < N - 1; i++) {
-		a += b;
+	while (i < M) {
+		if (str.substr(i, 3) == "IOI") {
+			cnt++;
+			if (cnt == N) {
+				ans++; // 패턴발견
+				cnt--;
+			}
+			i += 2;
+		}
+		else {
+			cnt = 0;
+			i++;
+		}
 	}
-	int length = 3 + 2 * (N - 1);
-	for (int i = 0; i < M - length + 1; i++) {
-		dict[str.substr(i, length)]++;
-	}
-	cout << dict[a];
+	cout << ans;
 }
