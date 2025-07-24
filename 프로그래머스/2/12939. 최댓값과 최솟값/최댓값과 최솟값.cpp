@@ -19,8 +19,8 @@ string solution(string s) {
     if(str != "") v.push_back(stoi(str));
     
     sort(v.begin(),v.end());
-    answer += to_string(v[0]) + ' ';
-    answer += to_string(v[v.size() - 1]);
+    answer += to_string(v[0]) + ' '; // 정수를 문자열로 변환하여 추가
+    answer += to_string(v[v.size() - 1]); // 정수를 문자열로 변환하여 추가
     
     return answer;
 }
